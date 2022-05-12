@@ -46,7 +46,7 @@ typedef struct instruction_s
 /**funcs */
 int main(int argc, char *argv[]);
 void command_interpreter(char *argv);
-int op_commands(stack_t **stack, char *token1, char *token2, unsigned int line_number);
+int op_commands(stack_t **stack, char *t1, char *t2, unsigned int line_number);
 stack_t *create_node(int n);
 void _push(stack_t **stack, unsigned int line_number);
 void _pall(stack_t **stack, unsigned int n);
