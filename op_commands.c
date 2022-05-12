@@ -7,7 +7,7 @@ int value;
  * @line_number: int
  * Return: int
  */
-int op_commands(stack_t **stack, char *token1, unsigned int line_number)
+int op_commands(stack_t **stack, char *token1, char *token2, unsigned int line_number)
 {
 	int i = 0;
 
@@ -26,6 +26,13 @@ int op_commands(stack_t **stack, char *token1, unsigned int line_number)
 	{
 		if (!strcmp(token1, op[i].opcode))
 		{
+			if (!strcmp(token1, "push"))
+			{
+				if (token2 != NULL &&_isdigit(token2) == 1)
+					value = atoi(token2);
+				else
+					return (1);
+			}
 			op[i].f(stack, (unsigned int) line_number);
 			break;
 		}
