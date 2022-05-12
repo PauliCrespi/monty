@@ -53,26 +53,8 @@ void _pall(stack_t **stack, unsigned int n)
 	}
 }
 /**
- *_pint - print first node func
- *@stack : stack
- *@n : int
- */
-void _pall(stack_t **stack, unsigned int line_number)
-{
-	if (stack != NULL)
-	{
-		dprintf(STDOUT_FILENO, "%d\n", (*stack)->n);
-        }
-	else
-	{
-		dprintf(STDERR_FILENO, "L%d: can't pint, stack empty\n", line_number);
-		cleanStack(stack);
-		exit(EXIT_FAILURE);
-	}
-}
-/**
  * _pop - removes first element  of the stack.
- * @stack: Stack 
+ * @stack: Stack
  * @line_number: Number line
  */
 void _pop(stack_t **stack, unsigned int line_number)
@@ -82,7 +64,7 @@ void _pop(stack_t **stack, unsigned int line_number)
 	if (*stack == NULL || stack == NULL)
 	{
 		dprintf(STDERR_FILENO, "L%d: can't pop an empty stack\n", line_number);
-		cleanStack(stack);
+		free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
 
