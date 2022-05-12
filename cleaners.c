@@ -40,15 +40,3 @@ void push_error(stack_t *stack, int line_num)
 	free_list(stack);
 	exit(EXIT_FAILURE);
 }
-
-/**
- * ins_error - Error handler
- * @stack: stack
- * @line_num: int
- */
-void ins_error(stack_t *stack, int line_num)
-{
-	dprintf(STDERR_FILENO, "L%d: unknown instruction %d\n", value, line_num);
-	free_list(stack);
-	exit(EXIT_FAILURE);
-}
