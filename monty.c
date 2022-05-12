@@ -37,9 +37,7 @@ void command_interpreter(char *argv)
 			if (token1 == NULL || token1[0] == '#')
 				continue;
 			token2 = strtok(NULL, " \t\n");
-			if (token2 != NULL && _isdigit(token2) == 1)
-				value = atoi(token2);
-			found = op_commands(&stack, token1, l_num);
+			found = op_commands(&stack, token1, token2, l_num);
 			if (found == 1)
 			{
 				free(line);
