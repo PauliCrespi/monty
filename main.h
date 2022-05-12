@@ -11,6 +11,8 @@
 #include <fcntl.h>
 #include <ctype.h>
 
+extern int value;
+
 /**
 * struct stack_s - doubly linked list representation of a stack (or queue)
 * @n: integer
@@ -49,21 +51,16 @@ stack_t *create_node(int n);
 void _push(stack_t **stack, unsigned int line_number);
 void _pall(stack_t **stack, unsigned int n);
 int _isdigit(char *c);
+void _pint(stack_t **stack, unsigned int line_number);
+void _swap(stack_t **stack, unsigned int line_number);
+void _pop(stack_t **stack, unsigned int line_number);
+void _add(stack_t **stack, unsigned int line_number);
+void _nop(stack_t **stack, unsigned int line_number);
 
-/**
- * struct aux_s - helper
- * @file: File
- * @line: getline
- *
- * Description: file and getline
- */
-typedef struct aux_s
-{
-	FILE *file;
-	char *line;
-} aux_v;
 
-extern aux_v aux;
-extern int value;
+void free_list(stack_t *stack);
+void push_error(stack_t *stack, int line_num);
+void ins_error(stack_t *stack, int line_num);
+void free_stack(stack_t **stack);
 
 #endif /* MAIN_H */
