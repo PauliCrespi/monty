@@ -60,7 +60,6 @@ void _nop(stack_t **stack, unsigned int line_number);
 
 void free_list(stack_t *stack);
 void push_error(stack_t *stack, int line_num);
-void ins_error(stack_t *stack, int line_num);
 void free_stack(stack_t **stack);
 
 #endif /* MONTY_H */
