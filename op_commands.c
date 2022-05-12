@@ -40,7 +40,10 @@ int op_commands(stack_t **stack, char *t1, char *t2, unsigned int line_number)
 		i++;
 	}
 	if (!op[i].opcode)
-		return (2);
-
+	{
+		dprintf(STDERR_FILENO, "L%d: unknown instruction %s\n", line_number, t1);
+		free_stack(stack);
+		exit(EXIT_FAILURE);
+	}
 	return (0);
 }
