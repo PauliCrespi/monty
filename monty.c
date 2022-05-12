@@ -44,12 +44,6 @@ void command_interpreter(char *argv)
 				fclose(file);
 				push_error(stack, l_num);
 			}
-			else if (found == 2)
-			{
-				free(line);
-				fclose(file);
-				ins_error(stack, l_num);
-			}
 		}
 		free(line);
 		free_list(stack);
