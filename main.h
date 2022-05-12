@@ -9,6 +9,7 @@
 #include <errno.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <ctype.h>
 
 /**
 * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -36,14 +37,33 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 /**funcs */
 int main(int argc, char *argv[]);
 void command_interpreter(char *argv);
-char **tokenizer(char *line, const char *sep);
-int op_comands(stack_t **stack, char **token, int count);
+int op_commands(stack_t **stack, char *token1, unsigned int line_number);
+stack_t *create_node(int n);
+void _push(stack_t **stack, unsigned int line_number);
+void _pall(stack_t **stack, unsigned int n);
+int _isdigit(char *c);
+
+/**
+ * struct aux_s - helper
+ * @file: File
+ * @line: getline
+ *
+ * Description: file and getline
+ */
+typedef struct aux_s
+{
+	FILE *file;
+	char *line;
+} aux_v;
+
+extern aux_v aux;
+extern int value;
 
 #endif /* MAIN_H */
