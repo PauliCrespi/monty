@@ -3,11 +3,12 @@ int value;
 /**
  * op_commands - function to handle the opcode
  * @stack: is a stack or queue
- * @token1 : line
+ * @t1 : line
+ * @t2 : line
  * @line_number: int
  * Return: int
  */
-int op_commands(stack_t **stack, char *token1, char *token2, unsigned int line_number)
+int op_commands(stack_t **stack, char *t1, char *t2, unsigned int line_number)
 {
 	int i = 0;
 
@@ -24,12 +25,12 @@ int op_commands(stack_t **stack, char *token1, char *token2, unsigned int line_n
 
 	while (op[i].opcode)
 	{
-		if (!strcmp(token1, op[i].opcode))
+		if (!strcmp(t1, op[i].opcode))
 		{
-			if (!strcmp(token1, "push"))
+			if (!strcmp(t1, "push"))
 			{
-				if (token2 != NULL &&_isdigit(token2) == 1)
-					value = atoi(token2);
+				if (t2 != NULL && _isdigit(t2) == 1)
+					value = atoi(t2);
 				else
 					return (1);
 			}
